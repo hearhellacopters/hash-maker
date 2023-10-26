@@ -1,0 +1,54 @@
+{
+  "name": "hash-maker",
+  "version": "1.0.0",
+  "description": "A collection of hash and number generators for Node or Browser",
+  "module": "lib/esm/index.mjs",
+  "main": "lib/cjs/index.js",
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hearhellacopters/hash-maker.git"
+  },
+  "exports": {
+    ".": {
+      "import": "./lib/esm/index.mjs",
+      "require": "./lib/cjs/index.js"
+    },
+    "./*": "./*"
+  },
+  "scripts": {
+    "clean": "rmdir /s lib",
+    "build": "npm run clean && npm run build:esm && npm run move && npm run build:cjs",
+    "build:esm": "tsc --module esnext --outDir lib/esm",
+    "move": "cd ./lib/esm/ && ren index.js index.mjs && cd ../../",
+    "build:cjs": "tsc --module commonjs --outDir lib/cjs",
+    "prepack": ""
+  },
+  "keywords": [
+    "hash",
+    "rng",
+    "SHA",
+    "UUID",
+    "CRC",
+    "MersenneTwister",
+    "randomBytes",
+    "XorShift"
+  ],
+  "author": "HearHellacopters",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hearhellacopters/hash-maker/issues"
+  },
+  "homepage": "https://github.com/hearhellacopters/hash-maker#readme",
+  "devDependencies": {
+    "@types/mocha": "^10.0.2",
+    "@types/node": "^20.7.0",
+    "@typescript/lib-dom": "npm:@types/web@^0.0.115",
+    "typescript": "^5.2.2"
+  },
+  "engines": {
+    "node": ">=12"
+  }
+}
