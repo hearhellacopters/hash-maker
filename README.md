@@ -38,7 +38,7 @@ const hash = SHA256("0123456789",{asArray:true});
 </thead>
 <tbody>
   <tr>
-    <td>SHA1(message, options?)<br>SHA224(message, options?)<br>SHA256(message, options?)<br>SHA384(message, options)<br>SHA512(message, options)</td>
+    <td>SHA1(message, options?)<br>SHA224(message, options?)<br>SHA256(message, options?)<br>SHA384(message, options?)<br>SHA512(message, options?)</td>
     <td>Message to be hashed as string, Uint8Array or Buffer,<br>options: {
   asString: true ||
   asBuffer: true ||
