@@ -27,15 +27,69 @@ function camp(number:number){
     }
 }
 
+function hexStringToUint8Array(hexString:string) {
+
+    hexString = hexString.replace(/-/g,"");
+
+    // Check if the hex string has an odd length, and pad it with a leading "0" if needed.
+    if (hexString.length % 2 !== 0) {
+        hexString = "0" + hexString;
+    }
+
+    // Create a Uint8Array of the correct length.
+    const uint8Array = new Uint8Array(hexString.length / 2);
+
+    // Parse the hex string and populate the Uint8Array.
+    for (let i = 0; i < hexString.length; i += 2) {
+        const byte = parseInt(hexString.substr(i, 2), 16);
+        uint8Array[i / 2] = byte;
+    }
+
+    return uint8Array;
+}
+
+function hexStringToBuffer(hexString:string) {
+
+    hexString = hexString.replace(/-/g,"");
+
+    // Check if the hex string has an odd length, and pad it with a leading "0" if needed.
+    if (hexString.length % 2 !== 0) {
+        hexString = "0" + hexString;
+    }
+
+    // Create a Buffer of the correct length.
+    const buffer = Buffer.alloc(hexString.length / 2);
+
+    // Parse the hex string and populate the Uint8Array.
+    for (let i = 0; i < hexString.length; i += 2) {
+        const byte = parseInt(hexString.substr(i, 2), 16);
+        buffer[i / 2] = byte;
+    }
+
+    return buffer;
+}
+
+interface Options {
+    seed?:Uint8Array|Buffer
+    mac?:Uint8Array|Buffer
+    asBuffer?:boolean,
+    asArray?:boolean,
+}
+
 /**
- * Generates a UUID. 
+ * Generates a UUID as Uint8Array, Buffer or Hex string (default). 
+ * 
  * @param {number} version - UUID version 1-5 (default 4)
- * @param {Uint8Array|Buffer} seed - If seeding is needed
- * @param {Uint8Array|Buffer} mac - if a mac ID can be supplied, else is generated 
+ * @param {Uint8Array|Buffer} options.seed - If seeding is needed. Must be UInt8Array or Buffer of 16 bytes.
+ * @param {Uint8Array|Buffer} options.mac - If a mac ID is needed. Must be UInt8Array or Buffer of 6 bytes. Else one is generated when needed.
  * @returns string
  */
-export function generateUUID(version?:number, seed?:Uint8Array|Buffer, mac?:Uint8Array|Buffer):string {
-    var buff = seed as Uint8Array
+export function UUID(version?:number, options?:Options):string|Buffer|Uint8Array {
+    var buff:Uint8Array;
+    const seed = options && options.seed;
+    const mac = options && options.mac
+    const asBuffer = options && options.asBuffer
+    const asArray = options && options.asArray
     if(seed && (seed instanceof Buffer || seed instanceof Uint8Array)){
         if(seed.length < 16){
             throw new Error("Seed array must be at least 16 bytes")
@@ -181,6 +235,12 @@ export function generateUUID(version?:number, seed?:Uint8Array|Buffer, mac?:Uint
             break;
         default:
             break;
+    }
+    if(asBuffer){
+        return hexStringToBuffer(output)
+    }
+    if(asArray){
+        return hexStringToUint8Array(output)
     }
     return output
 }

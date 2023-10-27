@@ -6,7 +6,7 @@
  * const rxs = new RANDOMXORSHIFT(seed);
  * const random_int = rxs.random_int();
  * ```
- * @param {number|Uint8Array|Buffer} seed - Can seed with number or a Uint8Array or Buffer of 4 bytes
+ * @param {number|Uint8Array|Buffer} seed - Can seeded with a number or a Uint8Array or Buffer of 4 bytes
  */
 export class RANDOMXORSHIFT {
     private mt:Uint8Array;

@@ -1,5 +1,5 @@
 export {MERSENNETWISTER} from './MERSENNETWISTER'
-export {generateUUID} from './UUID'
+export {UUID} from './UUID'
 export {MD5} from './MD5'
 export {SHA1} from './SHA1'
 export {SHA224} from './SHA256'

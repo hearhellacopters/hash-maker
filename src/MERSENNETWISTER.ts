@@ -8,9 +8,9 @@
  * const signedInt = mt.genrand_int32i() // or mt.RandTwisterSigned()
  * const unsigned31Int = mt.genrand_int3i()
  * const double = mt.genrand_real1() // or mt.RandTwisterDouble()
- * const float1 = genrand_real2() // generates a random number on [0,1)-real-interval
- * const float2 = genrand_real3() // generates a random number on (0,1)-real-interval
- * const float3 = genrand_res53() // generates a random number on [0,1) with 53-bit resolution
+ * const float1 = mt.genrand_real2() // generates a random number on [0,1)-real-interval
+ * const float2 = mt.genrand_real3() // generates a random number on (0,1)-real-interval
+ * const float3 = mt.genrand_res53() // generates a random number on [0,1) with 53-bit resolution
  * ```
  * @param {number|Uint32Array} seed - can be seeded with a number or Uint32Array
  */
