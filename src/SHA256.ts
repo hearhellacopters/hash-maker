@@ -106,10 +106,10 @@ var processBlock = function (H:number[], M:number[], offset:number) {
 }
 
 interface Options {
-    asString:boolean,
-    asBuffer:boolean,
-    asArray:boolean,
-    asHex:boolean
+    asString?:boolean,
+    asBuffer?:boolean,
+    asArray?:boolean,
+    asHex?:boolean
   }
 
 /**

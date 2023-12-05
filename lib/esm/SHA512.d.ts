@@ -1,9 +1,9 @@
 /// <reference types="node" />
 interface Options {
-    asString: boolean;
-    asBuffer: boolean;
-    asArray: boolean;
-    asHex: boolean;
+    asString?: boolean;
+    asBuffer?: boolean;
+    asArray?: boolean;
+    asHex?: boolean;
 }
 /**
  * Creates a 64 byte SHA512 hash of the message as either a string, hex, Uint8Array or Buffer. Accepts strings, Uint8Array or Buffer.

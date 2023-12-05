@@ -108,10 +108,10 @@ function sha1(message:string|Uint8Array|Buffer) {
 }
 
 interface Options {
-  asString:boolean,
-  asBuffer:boolean,
-  asArray:boolean,
-  asHex:boolean
+  asString?:boolean,
+  asBuffer?:boolean,
+  asArray?:boolean,
+  asHex?:boolean
 }
 
 /**

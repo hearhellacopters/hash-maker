@@ -189,10 +189,10 @@ function md5 (message:string|Uint8Array|Buffer):number[] {
 };
 
 interface Options {
-    asString:boolean,
-    asBuffer:boolean,
-    asArray:boolean,
-    asHex:boolean
+    asString?:boolean,
+    asBuffer?:boolean,
+    asArray?:boolean,
+    asHex?:boolean
 }
 
 /**

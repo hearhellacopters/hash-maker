@@ -1,8 +1,8 @@
 interface Options {
-    asBuffer:boolean,
-    asArray:boolean,
-    asHex:boolean,
-    asNumber:boolean
+    asBuffer?:boolean,
+    asArray?:boolean,
+    asHex?:boolean,
+    asNumber?:boolean
 }
 /**
  * Cyclic Redundancy Check 32

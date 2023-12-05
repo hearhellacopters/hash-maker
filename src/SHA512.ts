@@ -313,10 +313,10 @@ class Sha512 {
 }
 
 interface Options {
-    asString:boolean,
-    asBuffer:boolean,
-    asArray:boolean,
-    asHex:boolean
+    asString?:boolean,
+    asBuffer?:boolean,
+    asArray?:boolean,
+    asHex?:boolean
 }
 
 /**
