@@ -4,6 +4,7 @@
   "description": "A collection of hash and number generators for Node or Browser",
   "module": "lib/esm/index.mjs",
   "main": "lib/cjs/index.js",
+  "type": "module",
   "files": [
     "lib"
   ],
