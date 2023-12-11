@@ -1,4 +1,4 @@
-/// <reference types="node" />
+/// <reference types="node" resolution-mode="require"/>
 /**
  * Generate random bytes as Uint8Array or Buffer
  *

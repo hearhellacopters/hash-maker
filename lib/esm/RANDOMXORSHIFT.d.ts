@@ -1,4 +1,4 @@
-/// <reference types="node" />
+/// <reference types="node" resolution-mode="require"/>
 /**
  * Random Xor Shift RNG. Can seed with number, a Uint8Array or Buffer of 4 bytes
  * ```javascript

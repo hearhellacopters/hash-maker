@@ -1,4 +1,4 @@
-import {MERSENNETWISTER as mt} from './MERSENNETWISTER'
+import {MERSENNETWISTER as mt} from './MERSENNETWISTER.js'
 
 function getMachineHostname(): string {
     // Check if the code is running in a Node.js environment
