@@ -1,6 +1,6 @@
 {
   "name": "hash-maker",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A collection of hash and number generators for Node or Browser",
   "module": "lib/esm/index.mjs",
   "main": "lib/cjs/index.js",
