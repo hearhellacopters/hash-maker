@@ -1,15 +1,19 @@
-interface Options {
+interface Options32 {
+    asJAMCRC?:boolean
     asBuffer?:boolean,
     asArray?:boolean,
     asHex?:boolean,
     asNumber?:boolean
 }
+
 /**
- * Cyclic Redundancy Check 32
+ * Cyclic Redundancy Check 32. Can return as JAM as well in options. 
+ * 
  * @param {string|Uint8Array|Buffer} message - Message as string, Uint8Array or Buffer
- * @returns number
+ * @param {Options32} options - Object with asString, asBuffer, asArray or asHex as true (default as hex string)
+ * @returns ``string|Uint8Array|Buffer``
  */
-export function CRC32(message:string|Uint8Array|Buffer, options?:Options):number|string|Uint8Array|Buffer{
+export function CRC32(message:string|Uint8Array|Buffer, options?:Options32):number|string|Uint8Array|Buffer{
     var bytes:any
     if(typeof message == "string"){
         bytes = stringToBytes(message)
@@ -32,37 +36,53 @@ export function CRC32(message:string|Uint8Array|Buffer, options?:Options):number
         }
     }
     crc = toUnsignedInt32(crc ^ 0xFFFFFFFF);
+    if(options && options.asJAMCRC){
+        crc = toUnsignedInt32(~crc);
+    }
+
+    const byte_array = [crc & 0xFF,(crc >> 8) & 0xFF,(crc >> 16) & 0xFF,(crc >> 24) & 0xFF]
+    
     if(options && options.asBuffer){
         const buff = Buffer.alloc(4)
-        buff[0] = (crc >> 24) & 0xFF;
-        buff[1] = (crc >> 16) & 0xFF;
-        buff[2] = (crc >> 8) & 0xFF;
-        buff[3] = crc & 0xFF;
+        buff[0] = byte_array[0];
+        buff[1] = byte_array[1];
+        buff[2] = byte_array[2];
+        buff[3] = byte_array[3];
         return buff
     } else
     if(options && options.asArray){
         const buff = new Uint8Array(4)
-        buff[0] = (crc >> 24) & 0xFF;
-        buff[1] = (crc >> 16) & 0xFF;
-        buff[2] = (crc >> 8) & 0xFF;
-        buff[3] = crc & 0xFF;
+        buff[0] = byte_array[0];
+        buff[1] = byte_array[1];
+        buff[2] = byte_array[2];
+        buff[3] = byte_array[3];
         return buff
     } else
     if(options && options.asHex){
         const buff = new Uint8Array(4)
-        buff[0] = (crc >> 24) & 0xFF;
-        buff[1] = (crc >> 16) & 0xFF;
-        buff[2] = (crc >> 8) & 0xFF;
-        buff[3] = crc & 0xFF;
+        buff[0] = byte_array[0];
+        buff[1] = byte_array[1];
+        buff[2] = byte_array[2];
+        buff[3] = byte_array[3];
         return bytesToHex(<unknown> buff as number[])
     }
     return crc
 }
 
+interface Options {
+    asJAMCRC?:boolean
+    asBuffer?:boolean,
+    asArray?:boolean,
+    asHex?:boolean,
+    asNumber?:boolean
+}
+
 /**
  * Cyclic Redundancy Check 3
+ * 
  * @param {string|Uint8Array|Buffer} message - Message as string, Uint8Array or Buffer
- * @returns number
+ * @param {Options32} options - Object with asString, asBuffer, asArray or asHex as true (default as hex string)
+ * @returns ``string|Uint8Array|Buffer``
  */
 export function CRC3(message:string|Uint8Array|Buffer, options?:Options):number|string|Uint8Array|Buffer{
     var bytes:any
@@ -110,8 +130,10 @@ export function CRC3(message:string|Uint8Array|Buffer, options?:Options):number|
 
 /**
  * Cyclic Redundancy Check 16
+ * 
  * @param {string|Uint8Array|Buffer} message - Message as string, Uint8Array or Buffer
- * @returns number
+ * @param {Options32} options - Object with asString, asBuffer, asArray or asHex as true (default as hex string)
+ * @returns ``string|Uint8Array|Buffer``
  */
 export function CRC16(message:string|Uint8Array|Buffer, options?:Options):number|string|Uint8Array|Buffer{
     var bytes:any
@@ -152,22 +174,22 @@ export function CRC16(message:string|Uint8Array|Buffer, options?:Options):number
 		crc[0] = (crc[0] >> 8) ^ crc_tab16[ (crc[0] ^ bytes[ptr]) & 0x00FF ];
         ptr++
 	}
-   
+    const byte_array = [crc[0] & 0xFF,(crc[0] >> 8) & 0xFF]
     if(options && options.asBuffer){
         const buff = Buffer.alloc(2)
-        buff[0] = (crc[0] >> 8) & 0xFF;
-        buff[1] = crc[0] & 0xFF;
+        buff[0] = byte_array[0];
+        buff[1] = byte_array[1];
     } else
     if(options && options.asArray){
         const buff = new Uint8Array(2)
-        buff[0] = (crc[0] >> 8) & 0xFF;
-        buff[1] = crc[0] & 0xFF;
+         buff[0] = byte_array[0];
+         buff[1] = byte_array[1];
         return buff
     } else
     if(options && options.asHex){
         const buff = new Uint8Array(2)
-        buff[0] = (crc[0] >> 8) & 0xFF;
-        buff[1] = crc[0] & 0xFF;
+        buff[0] = byte_array[0];
+        buff[1] = byte_array[1];
         return bytesToHex(<unknown> buff as number[])
     }
     return crc[0];
