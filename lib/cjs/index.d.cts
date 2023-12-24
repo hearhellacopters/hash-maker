@@ -7,4 +7,4 @@ export { RANDOMXORSHIFT } from "./RANDOMXORSHIFT.js";
 export { SHA224, SHA256 } from "./SHA256.js";
 export { SHA384, SHA512 } from "./SHA512.js";
 export { CRC32, CRC3, CRC16 } from "./CRC32.js";
-//# sourceMappingURL=index.d.ts.map
+//# sourceMappingURL=index.d.cts.map

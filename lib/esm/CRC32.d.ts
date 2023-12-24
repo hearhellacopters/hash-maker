@@ -1,4 +1,4 @@
-/// <reference types="node" />
+/// <reference types="node" resolution-mode="require"/>
 interface Options32 {
     asJAMCRC?: boolean;
     asBuffer?: boolean;
