@@ -1,4 +1,4 @@
-/// <reference types="node" resolution-mode="require"/>
+/// <reference types="node" />
 interface Options {
     seed?: Uint8Array | Buffer;
     mac?: Uint8Array | Buffer;
