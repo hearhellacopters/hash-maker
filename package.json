@@ -1,10 +1,9 @@
 {
   "name": "hash-maker",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "A collection of hash and number generators for Node or Browser",
-  "module": "lib/esm/indexm.mjs",
-  "main": "lib/cjs/index.cjs",
-  "type": "module",
+  "module": "lib/esm/index.js",
+  "main": "lib/cjs/index.js",
   "files": [
     "lib"
   ],
@@ -14,13 +13,14 @@
   },
   "exports": {
     ".": {
-      "import": "./lib/esm/indexm.mjs",
-      "require": "./lib/cjs/index.cjs"
+      "import": "./lib/esm/index.js",
+      "require": "./lib/cjs/index.js"
     },
     "./*": "./*"
   },
   "scripts": {
     "clean": "rmdir /S /Q lib",
+    "build_clean": "npm run clean && npm run build:esm && npm run build:cjs",
     "build": "npm run clean && npm run build:esm && npm run build:cjs && npm run movem && npm run movec",
     "build:esm": "tsc --moduleResolution NodeNext --module NodeNext --outDir lib/esm",
     "movem": "mjs.bat" ,

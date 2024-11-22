@@ -1,19 +1,23 @@
 {
-    "compilerOptions": {
-      "target": "es6",
-      "allowJs": true,
-      "declaration": true,
-      "declarationMap": true,
-      "sourceMap": true,
-      "strict": true,
-      "noImplicitReturns": true,
-      "allowSyntheticDefaultImports":true,
-      "noFallthroughCasesInSwitch": true,
-      "types": ["node"],
-      "esModuleInterop": true
-    },
-    "include": [
-      "src/*"
+  "compilerOptions": {
+    "target": "es6",
+    "declaration": true,
+    "declarationMap": true,
+    "moduleResolution": "bundler",
+    "sourceMap": true,
+    "strict": true,
+    "noImplicitReturns": true,
+    "allowSyntheticDefaultImports": true,
+    "noFallthroughCasesInSwitch": true,
+    "types": [
+      "node"
     ],
-    "exclude": ["node_modules"]
-  }
+    "esModuleInterop": true
+  },
+  "include": [
+    "src/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
