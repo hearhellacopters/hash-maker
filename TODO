@@ -1,0 +1,30 @@
+[ ] SWIFFT https://en.wikipedia.org/wiki/SWIFFT
+[ ] Streebog https://en.wikipedia.org/wiki/Streebog
+[ ] Argon2: Argon2d, Argon2i, Argon2id (v1.3)
+[ ] EDON-R 256/224/384/512 hash
+[ ] ECOH https://en.wikipedia.org/wiki/Elliptic_curve_only_hash
+[ ] FSB https://en.wikipedia.org/wiki/Fast_syndrome-based_hash
+[ ] GOST https://en.wikipedia.org/wiki/GOST_(hash_function)
+[ ] CityHash https://github.com/tamtam180/CityHash-For-Java/blob/master/src/main/java/at/orz/hash/CityHash.java
+[ ] FarmHash https://github.com/google/farmhash
+[ ] MetroHash https://github.com/jandrewrogers/MetroHash
+[ ] xxhash https://github.com/Cyan4973/xxHash
+[ ] nhash https://metacpan.org/release/MOOLI/Algorithm-Nhash-0.002/source/lib/Algorithm/Nhash.pm
+[ ] t1ha https://gitflic.ru/project/erthink/t1ha
+[ ] stadtx https://github.com/demerphq/BeagleHash/blob/master/stadtx_hash.h
+[ ] Beagle Hash https://github.com/demerphq/BeagleHash/blob/master/beagle_hash.h
+[ ] Phat4 hash https://github.com/demerphq/BeagleHash/blob/master/phat_hash.h
+[ ] zaphod 32 / 64 https://github.com/demerphq/BeagleHash/blob/master/zaphod32_hash.h https://github.com/demerphq/BeagleHash/blob/master/zaphod64_hash.h
+[ ] sbox https://github.com/demerphq/BeagleHash/blob/master/sbox32_hash.h
+[ ] vmum https://github.com/vnmakarov/mum-hash/blob/master/vmum.h
+[ ] mum https://github.com/vnmakarov/mum-hash/blob/master/mum.h
+[ ] mum512 https://github.com/vnmakarov/mum-hash/blob/master/mum512.h
+[ ] FARSH https://github.com/Bulat-Ziganshin/FARSH
+[ ] falkhash https://github.com/gamozolabs/falkhash/blob/master/falkhash.c
+[ ] Ascon https://en.wikipedia.org/wiki/Ascon_(cipher)
+[ ] wyhash https://github.com/wangyi-fudan/wyhash
+[ ] rapidhash https://github.com/Nicoshev/rapidhash
+[ ] gxhash https://github.com/ogxd/gxhash
+[ ] sdbm https://github.com/davidar/sdbm/blob/29d5ed2b5297e51125ee45f6efc5541851aab0fb/hash.c#L18-L47
+[ ] komihash https://github.com/avaneev/komihash
+[ ] prvhash https://github.com/avaneev/prvhash

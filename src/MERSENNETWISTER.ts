@@ -41,7 +41,7 @@ export class MERSENNETWISTER {
     private CreateTwisterSeed():number{
         var differ = 0;
         var t = new Date().getTime();
-        var p = new Uint8Array(4)
+        var p = new Uint8Array(4);
         var h1 = 0;
         p[0] = t & 0xFF;
         p[1] = (t >> 8) & 0xFF;
@@ -58,7 +58,7 @@ export class MERSENNETWISTER {
 	private init_genrand(s:number):void {
 		this.mt[0] = s >>> 0;
 		for (this.mti = 1; this.mti < this.N; this.mti++) {
-			this.mt[this.mti] = (1812433253 * (this.mt[this.mti-1] ^ (this.mt[this.mti-1] >> 30)) + this.mti)
+			this.mt[this.mti] = (1812433253 * (this.mt[this.mti-1] ^ (this.mt[this.mti-1] >> 30)) + this.mti);
 			this.mt[this.mti] >>>= 0;
 		}
 	}
@@ -72,14 +72,20 @@ export class MERSENNETWISTER {
 			this.mt[i] = (this.mt[i] ^ ((this.mt[i-1] ^ (this.mt[i-1] >> 30)) * 1664525)) + init_key[j] + j;
             this.mt[i] >>>= 0; 
             i++; j++;
-            if (i>=this.N) { this.mt[0] = this.mt[this.N-1]; i=1; }
-            if (j>=key_length) j=0;
+            if (i>=this.N) { 
+                this.mt[0] = this.mt[this.N-1]; i=1; 
+            }
+            if (j>=key_length) {
+                j=0;
+            }
 		}
 		for (k = this.N - 1; k; k--) {
 			this.mt[i] = (this.mt[i] ^ ((this.mt[i-1] ^ (this.mt[i-1] >> 30)) * 1566083941)) - i; 
             this.mt[i] &= 0xffffffff;
             i++;
-            if (i>=this.N) { this.mt[0] = this.mt[this.N-1]; i=1; }
+            if (i>=this.N) { 
+                this.mt[0] = this.mt[this.N-1]; i=1; 
+            }
 		}
 
 		this.mt[0] = 0x80000000;

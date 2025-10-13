@@ -1,17 +1,22 @@
 /// <reference types="node" />
-interface Options {
-    asString?: boolean;
-    asBuffer?: boolean;
-    asArray?: boolean;
-    asHex?: boolean;
-}
+type InputData = string | Uint8Array | Buffer;
+type OutputFormat = 'hex' | 'array' | 'buffer';
 /**
- * Creates a 16 byte MD5 hash of the message as either a string, hex, Uint8Array or Buffer. Accepts strings, Uint8Array or Buffer.
+ * Creates a 16 byte MD5 hash of the message as either a hex string, Uint8Array or Buffer. Accepts strings, Uint8Array or Buffer.
  *
- * @param {string|Uint8Array|Buffer} message - Message to hash
- * @param {Options} options - Object with asString, asBuffer, asArray or asHex as true (default as hex string)
- * @returns ```string|Uint8Array|Buffer```
+ * @param {InputData} message - Message to hash
+ * @param {OutputFormat} format - as a hex string, Uint8Array, Buffer
+ * @returns `string|Uint8Array|Buffer`
  */
-export declare function MD5(message: string | Uint8Array | Buffer, options?: Options): string | Uint8Array | Buffer;
+export declare function MD5(message: InputData, format?: OutputFormat): string | Uint8Array | Buffer;
+/**
+ * Creates a 16 byte keyed MD5 hash of the message as either a hex string, Uint8Array or Buffer. Accepts strings, Uint8Array or Buffer.
+ *
+ * @param {InputData} message - Message to hash
+ * @param {InputData} key - hash key
+ * @param {OutputFormat} format - as a hex string, Uint8Array, Buffer
+ * @returns `string|Uint8Array|Buffer`
+ */
+export declare function MD5_HMAC(message: InputData, key: InputData, format?: OutputFormat): string | Uint8Array | Buffer;
 export {};
 //# sourceMappingURL=MD5.d.ts.map

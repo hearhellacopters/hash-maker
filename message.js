@@ -1,0 +1,1 @@
+console.log("hash-maker ^v2.0 has breaking changes from 1.0 with the additional hashes. Please review the new API structure and arguments before upgrading");
