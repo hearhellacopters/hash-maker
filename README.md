@@ -52,7 +52,8 @@ A collection of checksums, hashes and RNG for Node or Browser in pure JS.
 - [SIP](#sip) - Creates a SIP32 - 128 hash of the message.
 - [Highway](#highway) - Creates a Highway64 - 256 hash of the message.
 - [LSH](#lsh) - Creates a Locality-Sensitive Hashing (LSH) 256 - 512 hash of the message.
-- [Murmur](#murmur) - Creates a Murmur 1 - 3 
+- [Murmur](#murmur) - Creates a Murmur 1 - 3 hash of the message.
+- [Argon2](a#argon2) - Creates a Argon2d/i/id/u hash of the message.
 
 [RNG](#rng)
 - [Mersenne Twister](#mersenne-twister) - Random number generator that can be seaded. Create 32 bit signed, unsigned or float values.
@@ -314,7 +315,7 @@ const hash = SHA.SHA256("123456789","buffer");
 
 ## Keccak
 
-Keccak hash function class. Can be returned as a `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well.
+Keccak hash function class. Can be returned as a hex `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well.
 
 Can be imported as:
 
@@ -334,7 +335,7 @@ const hash = KECCAK.KECCAK512("123456789", "buffer");
 
 ## KMAC
 
-Keccak Message Authentication Code (KMAC) hash function class. Can be returned as a `string`, `Uint8Array`, or `Buffer`.
+Keccak Message Authentication Code (KMAC) hash function class. Can be returned as a hex `string`, `Uint8Array`, or `Buffer`.
 
 Can be imported as:
 
@@ -353,7 +354,7 @@ const hash = KMAC.KMAC256("123456789", "key", 256, "buffer", "secret");
 
 ## SHAKE
 
-Secure Hash Algorithm (SHAKE) hash function class. Can be returned as a `string`, `Uint8Array`, or `Buffer`. You can create your own with `SHAKE.SHAKE` wrapped function.
+Secure Hash Algorithm (SHAKE) hash function class. Can be returned as a hex `string`, `Uint8Array`, or `Buffer`. You can create your own with `SHAKE.SHAKE` wrapped function.
 
 Can be imported as:
 
@@ -372,7 +373,7 @@ const hash = SHAKE.SHAKE256("123456789", 256, "buffer");
 
 ## cSHAKE
 
-Customizable Secure Hash Algorithm (cSHAKE) hash function class. Can be returned as a `string`, `Uint8Array`, or `Buffer`.
+Customizable Secure Hash Algorithm (cSHAKE) hash function class. Can be returned as a hex `string`, `Uint8Array`, or `Buffer`.
 
 Can be imported as:
 
@@ -391,7 +392,7 @@ const hash = cSHAKE128.cSHAKE256("123456789", 256, "buffer", "Bob", "password");
 
 ## MD
 
-Message Digest (MD) hash function class version 2 - 6. A full list of all MD hashes can be found in `MD.FUNCTION_LIST`. Can be returned as a `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well.
+Message Digest (MD) hash function class version 2 - 6. A full list of all MD hashes can be found in `MD.FUNCTION_LIST`. Can be returned as a hex `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well.
 
 Can be imported as:
 
@@ -411,7 +412,7 @@ const hash = MD.MD4("123456789","buffer")
 
 ## BLAKE
 
-BLAKE hash function class. Can be returned as a `string`, `Uint8Array`, or `Buffer`. Can create your own BLAKE3 with `BLAKE.Blake3` class. Includes keyed `_HMAC` variants as well.
+BLAKE hash function class. Can be returned as a hex `string`, `Uint8Array`, or `Buffer`. Can create your own BLAKE3 with `BLAKE.Blake3` class. Includes keyed `_HMAC` variants as well.
 
 Can be imported as:
 
@@ -438,7 +439,7 @@ const hash = BLAKE.BLAKE2b("123456789");
 
 ## RIPEMD
 
-RACE Integrity Primitives Evaluation Message Digest (RIPEMD) hash function class. Can be returned as a `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with `RIPEMD.Ripemd` class or use `RIPEMD.RIPEMD` or `RIPEMD.RIPEMD_HMAC` for a wrapped functions.
+RACE Integrity Primitives Evaluation Message Digest (RIPEMD) hash function class. Can be returned as a hex `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with `RIPEMD.Ripemd` class or use `RIPEMD.RIPEMD` or `RIPEMD.RIPEMD_HMAC` for a wrapped functions.
 
 Can be imported as:
 
@@ -458,7 +459,7 @@ const hash = RIPEMD.RIPEMD160("123456789", "buffer");
 
 ## SM3
 
-ShangMi 3 (SM3) hash function class. Can be returned as a `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `SM3.Sm3` class or use `SM3.SM3_HMAC` for a wrapped function.
+ShangMi 3 (SM3) hash function class. Can be returned as a hex `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `SM3.Sm3` class or use `SM3.SM3_HMAC` for a wrapped function.
 
 Can be imported as:
 
@@ -478,7 +479,7 @@ const hash = SM3.SM3("123456789", "buffer");
 
 ## Whirlpool
 
-Whirlpool hash function class. Can be returned as a `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `WHIRLPOOL.Whirlpool` class or use `WHIRLPOOL.WHIRLPOOL_HMAC` for a wrapped function.
+Whirlpool hash function class. Can be returned as a hex `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `WHIRLPOOL.Whirlpool` class or use `WHIRLPOOL.WHIRLPOOL_HMAC` for a wrapped function.
 
 Can be imported as:
 
@@ -499,7 +500,7 @@ const hash = WHIRLPOOL.WHIRLPOOL0("123456789", "buffer");
 
 ## Snefru
 
-Snefru hash function class. Can be returned as a `string`, `Uint8Array`, or `Buffer`. Can create your own with the `SNEFRU.Snefru` class.
+Snefru hash function class. Can be returned as a hex `string`, `Uint8Array`, or `Buffer`. Can create your own with the `SNEFRU.Snefru` class.
 
 Can be imported as:
 
@@ -517,7 +518,7 @@ const hash = SNEFRU.SNEFRU("123456789", "buffer");
 
 ## Tiger
 
-Tiger hash function class. Can be returned as a `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `TIGER.Tiger` or use `TIGER.TIGER` or `TIGER.TIGER2` for a wrapped function.
+Tiger hash function class. Can be returned as a hex `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `TIGER.Tiger` or use `TIGER.TIGER` or `TIGER.TIGER2` for a wrapped function.
 
 Can be imported as:
 
@@ -537,7 +538,7 @@ const hash = TIGER.TIGER128("123456789", "buffer");
 
 ## BMW
 
-Blue Midnight Wish (BMW) hash function class. Can be returned as a `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `BMW.Bmw` class or use `BMW.BMW`, `BMW.BMW_HMAC` for a wrapped function.
+Blue Midnight Wish (BMW) hash function class. Can be returned as a hex `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `BMW.Bmw` class or use `BMW.BMW`, `BMW.BMW_HMAC` for a wrapped function.
 
 Can be imported as:
 
@@ -557,7 +558,7 @@ const hash = BMW.BMW256("123456789", "buffer");
 
 ## FNV
 
-Fowler/Noll/Vo (FNV) hash function class between of 32 - 1024 bits. Can be returned as a `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `FNV.Fnv` class or use `FNV.FNV` or `FNV.FNV_HMAC` for a wrapped functions.
+Fowler/Noll/Vo (FNV) hash function class between of 32 - 1024 bits. Can be returned as a hex `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `FNV.Fnv` class or use `FNV.FNV` or `FNV.FNV_HMAC` for a wrapped functions.
 
 Can be imported as:
 
@@ -577,7 +578,7 @@ const hash = FNV.FNV1A_64("123456789", "buffer");
 
 ## HAS160
 
-Hash Algorithm Standard 160 (HAS-160) hash function class. Can be returned as a `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `HAS160.Has160` class.
+Hash Algorithm Standard 160 (HAS-160) hash function class. Can be returned as a hex `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `HAS160.Has160` class.
 
 Can be imported as:
 
@@ -597,7 +598,7 @@ const hash = HAS160.HAS160("123456789", "buffer");
 
 ## Pearson
 
-Pearson hash function class. Can be returned as a `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `PEARSON.Pearson` class or the `PEARSON.PEARSON` or `PEARSON.PEARSON_HMAC` for a wrapped functions.
+Pearson hash function class. Can be returned as a hex `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `PEARSON.Pearson` class or the `PEARSON.PEARSON` or `PEARSON.PEARSON_HMAC` for a wrapped functions.
 
 Can be imported as:
 
@@ -617,7 +618,7 @@ const hash = PEARSON.PEARSON32("123456789", "buffer");
 
 ## Jenkins
 
-Bob Jenkin's hash function class for One At A Time, Lookup2, Lookup3 and Spooky hashes. Hshes shorter than 32 bits are return as `number` and 64 bit return as `bigint`. Others can be returned as a `string`, `Uint8Array`, or `Buffer`.
+Bob Jenkin's hash function class for One At A Time, Lookup2, Lookup3 and Spooky hashes. Hshes shorter than 32 bits are return as `number` and 64 bit return as `bigint`. Others can be returned as a hex `string`, `Uint8Array`, or `Buffer`.
 
 Can be imported as:
 
@@ -639,7 +640,7 @@ const hash = JENKINS.ONEATATIME("123456789");
 
 ## CubeHash
 
-CubeHash hash function class. Can be returned as a `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `CUBEHASH.CubeHash###` classes.
+CubeHash hash function class. Can be returned as a hex `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `CUBEHASH.CubeHash###` classes.
 
 Can be imported as:
 
@@ -659,7 +660,7 @@ const hash = CUBEHASH.CUBEHASH128("123456789", "buffer");
 
 ## PANAMA
 
-Pearson hash function class. Can be returned as a `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `PANAMA.Panama` class.
+Pearson hash function class. Can be returned as a hex `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `PANAMA.Panama` class.
 
 Can be imported as:
 
@@ -679,7 +680,7 @@ const hash = PANAMA.PANAMA("123456789", "buffer");
 
 ## PANAMA
 
-ECHO hash function class. Can be returned as a `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `ECHO.Echo###` class.
+ECHO hash function class. Can be returned as a hex `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `ECHO.Echo###` class.
 
 Can be imported as:
 
@@ -699,7 +700,7 @@ const hash = ECHO.ECHO512("123456789", "buffer");
 
 ## Fugue
 
-Fugue hash function class. Can be returned as a `string`, `Uint8Array`, or `Buffer`. Can create your own with the `FUGUE.Fugue###` class.
+Fugue hash function class. Can be returned as a hex `string`, `Uint8Array`, or `Buffer`. Can create your own with the `FUGUE.Fugue###` class.
 
 Can be imported as:
 
@@ -718,7 +719,7 @@ const hash = FUGUE.FUGUE512("123456789", "buffer");
 
 ## Groestl
 
-Grøstl hash function class. Can be returned as a `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `GROESTL.Groestl###` classes.
+Grøstl hash function class. Can be returned as a hex `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `GROESTL.Groestl###` classes.
 
 Can be imported as:
 
@@ -738,7 +739,7 @@ const hash = GROESTL.GROESTL512("123456789", "buffer");
 
 ## Hamsi
 
-Hamsi hash function class. Can be returned as a `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `HAMSI.Hamsi###` classes.
+Hamsi hash function class. Can be returned as a hex `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `HAMSI.Hamsi###` classes.
 
 Can be imported as:
 
@@ -758,7 +759,7 @@ const hash = HAMSI.HAMSI512("123456789", "buffer");
 
 ## HAVAL
 
-Hash of Variable Length (HAVAL) hash function class. Can be returned as a `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `HAVAL.HAVAL` wrapped function or `HAVAL.Haval###` classes.
+Hash of Variable Length (HAVAL) hash function class. Can be returned as a hex `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `HAVAL.HAVAL` wrapped function or `HAVAL.Haval###` classes.
 
 Can be imported as:
 
@@ -780,7 +781,7 @@ const hash = HAMSI.HAVAL256_3("123456789", "buffer");
 
 ## JH
 
-Hongjun Wu's JH hash function class. Can be returned as a `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `JH.Jh` wrapped function or `JH.JH###` classes.
+Hongjun Wu's JH hash function class. Can be returned as a hex `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `JH.Jh` wrapped function or `JH.JH###` classes.
 
 Can be imported as:
 
@@ -800,7 +801,7 @@ const hash = JH.JH256("123456789", "buffer");
 
 ## RadioGatún
 
-RadioGatún hash function class. *Note that the naming of 32 / 64 hashes are not the hash size, but the bit size it processes in.* Can be returned as a `string`, `Uint8Array`, or `Buffer`. Can create your own with the `RADIOGATUN.RadioGatun##` classes.
+RadioGatún hash function class. *Note that the naming of 32 / 64 hashes are not the hash size, but the bit size it processes in.* Can be returned as a hex `string`, `Uint8Array`, or `Buffer`. Can create your own with the `RADIOGATUN.RadioGatun##` classes.
 
 Can be imported as:
 
@@ -819,7 +820,7 @@ const hash = RADIOGATUN.RADIOGATUN32("123456789", "buffer");
 
 ## LUFFA
 
-LUFFA hash function class. Can be returned as a `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `LUFFA.LUFFA` wrapped function or `LUFFA.Luffa###` classes.
+LUFFA hash function class. Can be returned as a hex `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `LUFFA.LUFFA` wrapped function or `LUFFA.Luffa###` classes.
 
 Can be imported as:
 
@@ -839,7 +840,7 @@ const hash = LUFFA.LUFFA256("123456789", "buffer");
 
 ## SHABAL
 
-SHABAL hash function class. Can be returned as a `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `SHABAL.SHABAL` wrapped function or `SHABAL.Shabal###` classes.
+SHABAL hash function class. Can be returned as a hex `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `SHABAL.SHABAL` wrapped function or `SHABAL.Shabal###` classes.
 
 Can be imported as:
 
@@ -859,7 +860,7 @@ const hash = SHABAL.SHABAL256("123456789", "buffer");
 
 ## SHAvite
 
-SHAvite hash function class. Can be returned as a `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `SHAVITE.SHAVITE` wrapped function or `SHAVITE.SHAvite###` classes.
+SHAvite hash function class. Can be returned as a hex `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `SHAVITE.SHAVITE` wrapped function or `SHAVITE.SHAvite###` classes.
 
 Can be imported as:
 
@@ -879,7 +880,7 @@ const hash = SHAVITE.SHAVITE256("123456789", "buffer");
 
 ## Skein
 
-Skein hash function class. Can be returned as a `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `SKEIN.SKEIN` wrapped function or `SKEIN.Skein###` classes.
+Skein hash function class. Can be returned as a hex `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `SKEIN.SKEIN` wrapped function or `SKEIN.Skein###` classes.
 
 Can be imported as:
 
@@ -899,7 +900,7 @@ const hash = SKEIN.SKEIN256("123456789", "buffer");
 
 ## SIMD
 
-Single Instruction, Multiple Data (SIMD) hash function class. Can be returned as a `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `SIMD.SIMD` wrapped function or `SIMD.Simd###` classes.
+Single Instruction, Multiple Data (SIMD) hash function class. Can be returned as a hex `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `SIMD.SIMD` wrapped function or `SIMD.Simd###` classes.
 
 Can be imported as:
 
@@ -919,7 +920,7 @@ const hash = SIMD.SIMD256("123456789", "buffer");
 
 ## SIP
 
-SIP hash function class. Can be returned as a `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `SIP.SIP` wrapped function.
+SIP hash function class. Can be returned as a hex `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `SIP.SIP` wrapped function.
 
 Can be imported as:
 
@@ -938,7 +939,7 @@ const hash = SIP.SIP128("123456789", "key", "buffer");
 
 ## Highway
 
-Highway hash function class. Can be returned as a `string`, `Uint8Array`, or `Buffer`. Can create your own with the `HIGHWAY.HIGHWAY` wrapped function or `HIGHWAY.Highway` class.
+Highway hash function class. Can be returned as a hex `string`, `Uint8Array`, or `Buffer`. Can create your own with the `HIGHWAY.HIGHWAY` wrapped function or `HIGHWAY.Highway` class.
 
 Can be imported as:
 
@@ -957,7 +958,7 @@ const hash = HIGHWAY.HIGHWAY128("123456789", "key", "buffer");
 
 ## LSH
 
-Locality-Sensitive Hashing (LSH) hash function class. Can be returned as a `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `LSH.LSH` wrapped function or `LSH.Lsh###` class.
+Locality-Sensitive Hashing (LSH) hash function class. Can be returned as a hex `string`, `Uint8Array`, or `Buffer`. Includes keyed `_HMAC` variants as well. Can create your own with the `LSH.LSH` wrapped function or `LSH.Lsh###` class.
 
 Can be imported as:
 
@@ -977,7 +978,7 @@ const hash = LSH.LSH512_512("123456789", "buffer");
 
 ## MurMur
 
-MurMur hash function class. 128 bit functions can be returned as a `string`, `Uint8Array`, or `Buffer`. Others return as `number` or `bigint` depending on the hash size. 
+MurMur hash function class. 128 bit functions can be returned as a hex `string`, `Uint8Array`, or `Buffer`. Others return as `number` or `bigint` depending on the hash size. 
 
 Can be imported as:
 
@@ -993,6 +994,27 @@ const hash = MURMUR.MURMUR3_X86_128("123456789");
 | Functions                          | Params                               |
 | :---                               | :---                                 |
 |MURMUR#(message, seed?)| Message to be hashed as `string`, `Uint8Array` or `Buffer`. <br> Return format type as: `"hex"`, `"array"` or `"buffer"` for 128 bit functions, `number` and `bigint` for the others depending on hash size.|
+
+## Argon2
+
+Argon2 password hash function class. Can be returned as an Agron2 `encoded` string, a hex `string`, `Uint8Array`, or `Buffer`. Can create your own with the `ARGON2.ARGON2` wrapped function. 
+
+**Note**: This function uses WebAssembly. If run on a browser, it must support WebAssembly.
+
+Can be imported as:
+
+```javascript
+const { ARGON2 } = require('hash-maker'); // common
+// or
+import { ARGON2 } from 'hash-maker'; // esm
+/*---*/
+console.log(ARGON2.FUNCTION_LIST): // gives you the full list
+const hash = ARGON2.ARGON2U("pasword", "somesalt", "encoded"); // $argon2d$v=19$m=1024,t=1,p=1$c29tZXNhbHQ$Li5eBf5XrCz0cuzQRe9oflYqmA/VAzmzichw4ZYrvEU
+```
+
+| Functions                          | Params                               |
+| :---                               | :---                                 |
+|ARGON2##(password, salt, format?, time?, memory?, hashLen?, parallelism?)| Password and salt to be hashed (minimum 8 bytes each or will be padded) as `string`, `Uint8Array` or `Buffer`. <br> Return format type as: `"encoded"`, `"hex"`, `"array"` or `"buffer"`.<br> Argon2 params: <br> - time: default `1`<br> - memory: default `1024` (in KiB)<br> - hashLen: default `32`<br> - parallelism: default `1`|
 
 # RNG
 

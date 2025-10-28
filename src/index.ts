@@ -85,7 +85,8 @@ import { SIMD } from './SIMD';
 import { SIP } from './SIP'
 import { HIGHWAY } from './HIGHWAY';
 import { LSH } from './LSH';
-import { MURMUR } from './MURMUR'
+import { MURMUR } from './MURMUR';
+import { ARGON2 } from './ARGON2';
 
 /**
  * Static class of all Hash classes
@@ -126,6 +127,7 @@ class HASH {
     static HIGHWAY = HIGHWAY;
     static LSH = LSH;
     static MURMUR = MURMUR;
+    static ARGON2 = ARGON2;
 
     /**
      * List of all hashes in class
@@ -166,7 +168,8 @@ class HASH {
             "SIP",
             "HIGHWAY",
             "LSH",
-            "MURMUR"
+            "MURMUR",
+            "ARGON2"
         ];
     };
 }

@@ -1,6 +1,6 @@
+[X] Argon2: Argon2d, Argon2i, Argon2id, Argon2u (v1.3)
 [ ] SWIFFT https://en.wikipedia.org/wiki/SWIFFT
 [ ] Streebog https://en.wikipedia.org/wiki/Streebog
-[ ] Argon2: Argon2d, Argon2i, Argon2id (v1.3)
 [ ] EDON-R 256/224/384/512 hash
 [ ] ECOH https://en.wikipedia.org/wiki/Elliptic_curve_only_hash
 [ ] FSB https://en.wikipedia.org/wiki/Fast_syndrome-based_hash
