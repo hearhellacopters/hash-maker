@@ -60,6 +60,7 @@ import { SIP } from './SIP';
 import { HIGHWAY } from './HIGHWAY';
 import { LSH } from './LSH';
 import { MURMUR } from './MURMUR';
+import { ARGON2 } from './ARGON2';
 /**
  * Static class of all Hash classes
  */
@@ -99,6 +100,7 @@ declare class HASH {
     static HIGHWAY: typeof HIGHWAY;
     static LSH: typeof LSH;
     static MURMUR: typeof MURMUR;
+    static ARGON2: typeof ARGON2;
     /**
      * List of all hashes in class
      */
