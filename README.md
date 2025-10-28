@@ -53,7 +53,7 @@ A collection of checksums, hashes and RNG for Node or Browser in pure JS.
 - [Highway](#highway) - Creates a Highway64 - 256 hash of the message.
 - [LSH](#lsh) - Creates a Locality-Sensitive Hashing (LSH) 256 - 512 hash of the message.
 - [Murmur](#murmur) - Creates a Murmur 1 - 3 hash of the message.
-- [Argon2](a#argon2) - Creates a Argon2d/i/id/u hash of the message.
+- [Argon2](#argon2) - Creates a Argon2d/i/id/u hash of the message.
 
 [RNG](#rng)
 - [Mersenne Twister](#mersenne-twister) - Random number generator that can be seaded. Create 32 bit signed, unsigned or float values.
